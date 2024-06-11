@@ -27,4 +27,41 @@ class Post{
         "</div>");
       
     }
+
+     static function renderAsJSON() {
+        print( json_encode([
+            'id' => static::$id,
+            'title' => static::$title,
+            'author' => static::$author,
+            'date' => static::$date,
+            'body' => [
+                'heading' => static::$body['heading'],
+                'paragraph' => static::$body['paragraph'],
+            ],
+            'likes' => static::$likes,
+            'views' => static::$views,
+            'conclusion' => static::$conclusion,
+        ], JSON_PRETTY_PRINT ) );
+    }
+
+    static function renderAsXML() {
+        $xmlString = "<post>
+                <id>".static::$id."</id>".
+                "<title>".static::$title."</title>".
+                "<author>".static::$author."</author>".
+                "<date>".static::$date."</date>".
+                "<body>".
+                    "<heading>".static::$body['heading']."</heading>".
+                    "<paragraph>".static::$body['paragraph']."</paragraph>".
+                "</body>".
+                "<likes>".static::$likes."</likes>".
+                "<views>".static::$views."</views>".
+                "<conclusion>".static::$conclusion."</conclusion>".
+            "</post>";
+        
+        $xml = simplexml_load_string($xmlString);
+        print_r($xml);
+
+
+    }
 }
