@@ -15,6 +15,7 @@
  > properties / methods    +
  > access modifiers
  > magic methods
+ > encapsulation
 
  > abstractions 
  > inheritance
@@ -64,7 +65,7 @@ index,php
   > blueprint for creating objects/ instances
 
 
-
+> static
    UserOne         +-----> class   
         |          |
   +----------------+--+
@@ -94,3 +95,67 @@ HW1:
         renderAsHTML() -> return the HTML equivalnt of the post
         renderAsXML()  -> retrun  the XML equivalnt of the post
         renderAsJSON()  -> retrun  the JSON equivalnt of the post
+
+
+
+
+
+
+
+
+
+
+
+## lesson2
+
+Atunci cind propr unei clase sutn definite cu "static", aceste props apartin clasei si pot fi accesate asa : <?= Style::$background?> or static::$background
+
+Cind propr sunt definite cu public, ele nu mai apartin clasei, ci obiectului insine creat:
+-Mai intii trebuie creat un obiect cu acel blueprint:  $style = new Style()
+-Apoi utilizam propr de care avem nevoie: $style1->background
+
+
+__construct() ne permite sa customizam obiectul
+
+
+
+
+Style
+    |
++------------------------------+
+|                              |
+|                              |   
+|                              |   
+|                              |    
+|                              | --- new Style() ---> {...}  --> contructor -> (..)
+|                              |          |                        ^   
+|                              |          +---- $this -------------+
+|                              |            
++---+--------------------------+            
+    |                                       
+    blueprint                               ^
+    |                                       |
+  +-----------------------+                 |
+  |                       |                 |
+  |  $background          |                 |
+  |  $color               |+----------------+
+  |  $padding             |+----------------+
+  |                       |+----------------+
+  |                       |
+  |                       |
+  +-----------------------+
+
+
+
+
+
+   $style1->toCSS()
+
+   HW1: 
+      define class Profile()
+                    | name,avatart
+      
+      define a conctructor
+      define a toHTML() render in html the structure
+
+      create a few profile object and render on the page
