@@ -159,3 +159,15 @@ Style
       define a toHTML() render in html the structure
 
       create a few profile object and render on the page
+
+
+## ENCAPSULATION P2_C
+> access modifier
+> get/set
+
+
++----------+
+|   unit ----- getUnit() --->
+|   unit   |
+|   unit  <--- setUnit(unit) ----
++----------+
