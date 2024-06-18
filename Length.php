@@ -27,7 +27,7 @@
         }
 
         public function setValue($value) {
-            if ($value > 0 && is_integer($value)){
+            if ($value >= 0 && is_integer($value)){
                 $this->value = $value;
             }else{
                 die("ERROR: Only positive integers allowed!!!");
@@ -45,7 +45,7 @@
     $height = new Length(70, "%");
 
     $width->setUnit("rem");
-    $width->setValue(22);
+    $width->setValue(0);
     
 
     print($width->getValue());
