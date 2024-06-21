@@ -171,3 +171,26 @@ Style
 |   unit   |
 |   unit  <--- setUnit(unit) ----
 +----------+
+
+
+## lesson3
+
+4link->text = "..."
+        |
+        +------------ set value --->  __set($name, $value)
+                                  |                v
+print($link->text)                |         private $text
+              ^                   |                ^
+              |                   |                |
+              +------ get value ---- __get($name) -+
+                                  |
+                                  |
+                                  |  __toString()
+                                          |
+                            <-------------+
+
+  HW2: impelement __isset() so it returns true only if link has a non empty text and non empty url;
+                          ^
+                          |
+                          iset($link)
+                                  
