@@ -193,4 +193,74 @@ print($link->text)                |         private $text
                           ^
                           |
                           iset($link)
-                                  
+
+
+
+
+
+
+
+
+## Inheritance lesson 4
+
+> DRY - don't repeat yourself
+> Families of Classes
+> Abstraction
+
+> Polymorphism
+> SOLID
+
+
+
+
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+# VSCODE
+php executable not found
+
+
+
+
+  vscode <------------> extension (php) <---- config ------> ~php -----> docker exec... ----->CONTAINER
+    ^                                           ^
+    |                                           |
+    v                                           +---- global
+    index.php                                   |
+                                                +---- user
+                                                +--- profile
+                                                        |
+                                                        +--- setting.json
+                                                                |
+                                                                +--- php.executablePath
+                                                                              |
+                                                                              +--- 1. make shortcut ---> container
+                                                                              +--- 2. install locally php 8.3 & copy path 
+                                                +--- project
+
+
+
+  Item (Parent/SuperClass)
+   |
+    +--- name     
+    +--- image     
+    +--- price
+-------------------------
+    ^
+    |
+    extends
+    +---------------+      
+    |               | 
+    Food          Drink   (Subclassess / Derived/ Child)
+    |               |
+    +--- wigth      +--- volume

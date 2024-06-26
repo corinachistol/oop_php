@@ -1,75 +1,75 @@
 <?
 
-class Link {
-    private $text;
-    private $url;
-    public function __construct($text, $url) {
-        $this->__set("text", $text);
-        $this->__set("url", $url);
-    }
-    public function __set($name, $value){
-        if($name == "text") 
-            if($value != "")
-                $this->text = $value;
-            else 
-                die("Cannot leave {$name} empty");
-        else if($name == "url")
-             if($value != "")
-                $this->url = $value;
-            else 
-                die("Cannot leave {$name} empty");
-        else 
-            die("ERROR: Unknown property {$name}");
-    }
 
-    public function __get($name) {
-        if($name == "text") return $this->text;
-        else if($name == "url") return $this->url;
-        else die("ERROR: Unknown property {$name}");
-    }
+        abstract class Item{
+                public $name;
+                public $image;
+                public $price;
 
-    public function __tostring() {
-        return "<a href='{$this->url}'>{$this->text}</a>";
-    }
+                function __construct($name, $image, $price) {
+                        $this->name = $name;
+                        $this->image = $image;
+                        $this->price = $price;  
+                }
+        }
 
-    public function __isset($name){
-        if ($name == "text" && !empty($this->text))
-            if($name == "url" && !empty($this->url))
-                return true;
-            else false;
-    }
-   
-
-    
-
-
-}
-?>
-<?
-        //HW1: what if is text is multiple spaces, string functions check!
+    class Food extends Item {
+        public $weight;
+     
+        function __construct($name,$image,$price,$weight) {
+                parent::__construct($name,$image,$price);
+                $this->weight = $weight;
         
-        $link1 = new Link("php","https://php.net");
-        var_dump(isset($link1) ) ;
+        }
+      
 
-    
+        /**
+         * @return string
+         */
+        public function __toString() {
+        	return "<p>Food({$this->weight}g): {$this->name}: {$this->price}</p>";
+        }
+    }
+
+
+
+    class Drink extends Item {
+
+        public $volume;
+     
+        function __construct($name,$image,$price,$volume) {
+                parent::__construct($name,$image,$price);
+                $this->volume = $volume;
+        
+        }
+      
+
+        /**
+         * @return string
+         */
+        public function __toString() {
+        	return "<p>Drink({$this->volume}ml): {$this->name}: {$this->price}</p>";
+        }
+    }
+
+
+
+  
+
 ?>
+
 <!-- 
-<a href="<?=$link1->url?>"><?= $link1->text?></a> -->
+        ##############################################
+ -->
 
-<p>To read more about PHP, click <?=$link1?></p>
+ <?
+ 
+ $food1 = new Food("Salad", "images/salad.png",100, 1000);
+ print($food1);
 
-
-
-
-
-
-
-
-
+ $drink1 = new Drink("Juice", "images/juice.png",75, 250);
+ print($drink1);
 
 
-
-
-
-
+ ?>
 
