@@ -9,10 +9,10 @@
  !!! PHP > Java, TypeScript, C#, C++, ...
  !!! PHP > Angular, Vue, ...
 
- > class / object (instance)   +
+ > class / object (instance)   
  > namespacing
- > static + /non-static
- > properties / methods    +
+ > static  /non-static
+ > properties / methods    
  > access modifiers
  > magic methods
  > encapsulation
@@ -25,11 +25,11 @@
  
  > overriding
  > overloading
- > polymorphidm
+ > polymorphism
 
  > SOLID
  > design patterns
- > packages /PSR
+ > packages / PSR
  > composer
 
 
@@ -264,3 +264,46 @@ php executable not found
     Food          Drink   (Subclassess / Derived/ Child)
     |               |
     +--- wigth      +--- volume
+
+
+
+
+HW1: Add another product named DeliveryServies + improvise, test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Home Appliances / e-shop        lesson6_a
+
+> advanced OOP
+> code splitting / namespace
+> encapsulation
+> typing
+> inheritance
+> association
+
+
+
+
+
+(Abstract) Appliance
+              |
+              +--- id
+              +--- name
+              +--- price
+
+
+
+
