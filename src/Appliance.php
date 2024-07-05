@@ -1,11 +1,13 @@
 <?
 
      /*abstract*/ class Appliance {
+          const ID_MIN = 0;
+          const ID_MAX = 1_000_000;
         private int $id;
         private string $name;
-        private float $price;
+        private Money $price;
 
-        public function __construct(int $id, string $name, float $price) {
+        public function __construct(int $id, string $name, Money $price) {
         	$this->__set("id",$id);
         	$this->__set("name", $name);
         	$this->__set("price", $price);
@@ -21,33 +23,36 @@
      //      }
      //    }
 
-        public function __set($name, $value){
+        public function __set($name, $value): void{
+
           if($name == 'id'){
-               if(!empty($value) && is_int($value) && $value > 0){
+               if(!empty($value) && is_int($value) && $value > static::ID_MIN && $value < static::ID_MAX ){
                     $this->id = $value;
                     print("Changed id");
                } else{
-                    die("Cannot leave {$name} empty or negative number");
+                    //HW2: try using sprintf() print string to format
+                    die("Cannot leave {$name} empty or id must be in range (".static::ID_MIN."...".static::ID_MAX.")");
                }
           }elseif($name == 'name') {
-               if(!empty($value) && is_string($value)){
+               if(!empty($value) && is_string($value) && strlen($value) >= 3 ){
                     $this->name = $value;
                     print("Changed name");
                }else{
                     die("Cannot leave {$name} empty");
                }
 
-          }elseif($name == 'price'){
-               if(!empty($value) && is_float($value)){
-                    $this->price = $value;
-                    print("Changed price");
-               }else{
-                    die("Cannot leave {$name} empty");
-               }
-
-          } else{
-               die("ERROR: Unknown property {$name}");
           }
+          // elseif($name == 'price'){
+          //      if(!empty($value) && is_float($value)){
+          //           $this->price = $value;
+          //           print("Changed price");
+          //      }else{
+          //           die("Cannot leave {$name} empty");
+          //      }
+
+          // } else{
+          //      die("ERROR: Unknown property {$name}");
+          // }
         }
 
     

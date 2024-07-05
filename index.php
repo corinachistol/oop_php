@@ -1,17 +1,18 @@
 <?
 
 require_once 'src/Appliance.php';
+require_once 'src/Money.php';
 
-$tv = new Appliance(15, 'LG Extreme 150', 2000);
-var_dump($tv);
-
-
-
-
-
+$price = new Money(9223372036858, "EUR");
+$appliance = new Appliance(1, "LG LED",  $price);
+var_dump($appliance);
 
 
 ?>
 
 
-<!-- <?= $tv->name?> -->
+
+
+
+
+
