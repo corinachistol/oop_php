@@ -285,6 +285,9 @@ HW1: Add another product named DeliveryServies + improvise, test
 
 
 
+
+
+
 ## Home Appliances / e-shop        lesson6_a
 
 > advanced OOP
@@ -295,16 +298,25 @@ HW1: Add another product named DeliveryServies + improvise, test
 > association
 
 
+# lesson7
++---------------------------------------------------------+
+|                                                         +---- encapsulation (private)
+|(Abstract) Appliance                                     |
+|              |                                          |
+|              +--- id      <-- __construct()    <-------------+  
+|              +--- name    <--+                          |    |
+|              +--- price   <---                          |    |
++---------------------------------------------------------+    |
+                                                               |
+-------------^---------|------------------ inheritance         |
+      ^      |set      v get                                   |
+      |                                                        |
+  (C) TV                                                       |
+      |                                                        |
+      +-- diagonal      <---- __construct()                    |
+                              parent:: __construct()-----------+
 
-
-
-(Abstract) Appliance
-              |
-              +--- id
-              +--- name
-              +--- price
-
-
+                                $this->diagonal = $diagonal;
 
 
 
@@ -312,3 +324,43 @@ HW1: Add another product named DeliveryServies + improvise, test
       |
       +-- amount
       +-- currency
+
+
+
+index.php
+  ^
+  |
+  +-- src/TV.php
+  |         ^
+  |         |
+  |         +-- ./src/Appliance.php
+  |
+  |
+  +-- src/Appliance.php
+  +-- src/Money.php
+
+
+
+
+
+
+
+
+
+
+
+(C) Length
+      |
+      +-- value
+      +-- unit
+
+
+type declarations 
+enumerations = ne permite sa cream un set de constante 
+
+
+
+
+
+
+

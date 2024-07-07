@@ -1,6 +1,6 @@
 <?
 
-     /*abstract*/ class Appliance {
+     abstract class Appliance {
           const ID_MIN = 0;
           const ID_MAX = 1_000_000;
         private int $id;
