@@ -1,6 +1,7 @@
 <?
 
 class Money {
+    const CURRENCY_ALLOWED = ["EUR", "USD", "MDL"];
     private int $amount;  # x100 | 1.00$ --> 100
     private string $currency;
 
@@ -15,7 +16,7 @@ class Money {
     //HW4: limit to the max and min of integer -done
     public function setAmount(int $amount) :void {
         if($amount >= PHP_INT_MAX || $amount <= PHP_INT_MIN ){
-            die("Please enter a number between range [".PHP_INT_MIN."...".PHP_INT_MAX."]");
+            die(sprintf("Please enter a number between range [%d...%d]", PHP_INT_MIN, PHP_INT_MAX));
         }
         $this->amount = $amount;
     }
@@ -23,9 +24,14 @@ class Money {
         return $this->amount;
     }
 
-    // HW5: allow only EUR, USD, MDL 
+    // HW5: allow only EUR, USD, MDL - done
     public function setCurrency(string $currency) :void {
-        $this->currency = $currency;
+        if(in_array($currency, static::CURRENCY_ALLOWED, false)){
+            print("I found the {$currency}");
+            $this->currency = $currency;
+        }else{
+            die("Only EUR, USD, MDL currencies are allowed!");
+        }
     }
     
     public function getCurrency() :string {

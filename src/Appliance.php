@@ -28,31 +28,30 @@
           if($name == 'id'){
                if(!empty($value) && is_int($value) && $value > static::ID_MIN && $value < static::ID_MAX ){
                     $this->id = $value;
-                    print("Changed id");
+                    print "Changed id";
                } else{
                     //HW2: try using sprintf() print string to format
-                    die("Cannot leave {$name} empty or id must be in range (".static::ID_MIN."...".static::ID_MAX.")");
+                    die(sprintf("Cannot leave %s empty or id must be in range (%d...%d) " , $name, static::ID_MIN, static::ID_MAX));
                }
           }elseif($name == 'name') {
                if(!empty($value) && is_string($value) && strlen($value) >= 3 ){
                     $this->name = $value;
-                    print("Changed name");
+                    print "Changed name";
                }else{
-                    die("Cannot leave {$name} empty");
+                    die(sprintf("Cannot leave %s empty", $name ));
                }
 
-          }
-          // elseif($name == 'price'){
-          //      if(!empty($value) && is_float($value)){
-          //           $this->price = $value;
-          //           print("Changed price");
-          //      }else{
-          //           die("Cannot leave {$name} empty");
-          //      }
+          }elseif($name == 'price'){
+               if(!empty($value) && $value instanceof Money){
+                    $this->price = $value;
+                    print("Changed price");
+               }else{
+                    die(sprintf("Cannot leave %s empty", $name));
+               }
 
-          // } else{
-          //      die("ERROR: Unknown property {$name}");
-          // }
+          } else{
+               die(sprintf("Cannot leave %s empty", $name));
+          }
         }
 
     
@@ -63,7 +62,7 @@
                if ($name == 'id') return $this->id;
                elseif ($name == 'name') return $this->name;
                elseif($name == 'price') return $this->price;
-               else die("ERROR: Unknown property {$name}");
+               else die(sprintf("ERROR: Unknown property %s", $name));
                
           }
     }
