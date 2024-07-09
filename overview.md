@@ -356,9 +356,187 @@ index.php
 
 
 type declarations 
-enumerations = ne permite sa cream un set de constante 
+enumerations = ne permite sa cream un set de constante din care putem alege un anumit tip de date
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+## lesson 8
+association (objects)
+
+
+
+      tv (TV)
+      |
+      +-- id    (int)
+      +-- name  (string)
+      +-- price (Money)
+      |       |
+      |       +-- amount 
+      |       +-- currency 
+      |
+      --------
+      |
+      +-- diagonal (Length)
+              |
+              +-- value (int|float)
+              +-- unit(Enum)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# value vs references
+> copy, value, clone
+
+int, float, boolean, string...
+
+
+
+
+
+
+
+original        string
+  |               v
++--------------------+
+|               "abc" |
++--------------------+
+
+
+copy              string
+  |               v
++--------------------+
+|               "Abc" |  <---- $copy[0] = 'A';
++--------------------+
+                  |
+                  v
+                  str_replace('b', 'B', $copy)
+                  |
+                  v
+                string
+                  v
++--------------------+
+|               "ABc" |  
++--------------------+
+
+
+
+
+
+
+
+
+
+                    $argument (1001) -------> [1001]
+                          |
+                      $original                  ^
+                          |                      |
+                          |                      | 
+increment                 |   -------------------+
+    |                     v  /
++---+----------------(&$value)-----+
+|                                 |
+|                         |       |
+|                         v       |
+|                     $value++    |  (1001)
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                       return    |
+|                          |      |
++--------------------------|------+
+                           |
+                           copy
+                           |
+                           v
+                           $result (1001)
+
+
+
+
+    
+
+                    $argument (1000) -------> [1000]
+                          |
+                        $copy                    
+                          |                      
+                          |                      
+increment                 |   +-------------> [1001] 
+    |                     v / 
++---+----------------($value)-----+
+|                                 |
+|                         |       |
+|                         v       |
+|                     $value++    |  (1001)
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                       return    |
+|                          |      |
++--------------------------|------+
+                           |
+                           copy
+                           |      -------- [1001]
+                           v    /
+                           $result
+
+
+
+
+
+
+                    $argument (1000) -------> [1000]
+                          |
+                        copy                      ^
+                          |                       |
+                          |                       |
+&increment                 |   +------------------+  
+    |                     v / 
++---+----------------($value)-----+
+|                                 |
+|                         |       |
+|                         v       |
+|                     $value++    |  
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                          |      |
+|                       return    |
+|                          |      |
++--------------------------|------+
+                           |
+                          &                       ^
+                           |      -----------------
+                           v    /
+                           $result
 
 
 
