@@ -541,4 +541,63 @@ increment                 |   +-------------> [1001]
 
 
 
+## lesson9
 
+$box_one        Box
+     |           |
++----+----------------+
+|  $value=100         |
++----+----------------+
+     |
+$box_ref
+
+ 
+// $numbers = [10, 20, 30];
+
+// //pass by value
+// $numbers_copy = $numbers;
+
+// $numbers_copy[] = 40; //push  like in js
+
+// var_dump($numbers);
+// var_dump($numbers_copy);
+
+    // class Box {
+    //     public $value;
+
+    //     public function __construct($value) {
+    //         $this->value = $value;
+    //     }
+
+    // }
+
+    // // objects in PHP are passed by reference 
+    // $box_one = new Box(100);
+    // $box_ref = $box_one;
+
+    // $box_ref->value = 200;
+
+    // var_dump($box_one);
+    // var_dump($box_ref);
+
+
+
+> namespace
+
+index.php
+    ^
+    |
+    +--- / Length.php
+    |          |
+    |          +-- Length
+    |                 |
+    |                 +-- Units (enum)
+    |                 +-- Length (class)
+    |
+    |
+    +--- / Volume.php
+              |
+              +-- Volume
+                    |
+                    +-- Units (enum)
+                    +-- Volume (class)

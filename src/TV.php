@@ -2,9 +2,9 @@
 
 require_once './src/Appliance.php';
 class TV extends Appliance{
-    private Length $diagonal;
+    private \Length\Length $diagonal;
     
-    public function __construct(int $id, string $name, Length $diagonal, Money $price, ){
+    public function __construct(int $id, string $name, \Length\Length $diagonal, Money $price, ){
         //delegate construction
         parent::__construct( $id, $name, $price);
 
