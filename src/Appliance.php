@@ -58,11 +58,15 @@
      //    public function getId(): int {
      //    	return $this->id;
      //    }
-          public function __get($name){
-               if ($name == 'id') return $this->id;
-               elseif ($name == 'name') return $this->name;
-               elseif($name == 'price') return $this->price;
-               else die(sprintf("ERROR: Unknown property %s", $name));
-               
-          }
+
+     // public function getPrice(): Money{
+     //      return $this->price;
+     // }
+     public function __get($name){
+          if ($name == 'id') return $this->id;
+          elseif ($name == 'name') return $this->name;
+          elseif($name == 'price') return $this->price;
+          else die(sprintf("ERROR: Unknown property %s", $name));
+          
+     }
     }

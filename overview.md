@@ -601,3 +601,31 @@ index.php
                     |
                     +-- Units (enum)
                     +-- Volume (class)
+
+
+
+
+## lesson10
+agregation
+
+  order <Order>
+    |
+    |
+    +-- items <array>
+          |
+          +-- 0 - <Item>                 <------------------------- $tv
+          |           |                  v                           ^
+          |           +-- product   --> <Appliance>                changes
+          |           +-- quantity  --> <int>
+          |
+          |
+          +-- 1 -...
+
+
+
+
+
+
+          Appliance $appliance
+            |           ^
+                      TV,DishWasher,...
