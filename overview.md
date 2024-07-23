@@ -629,3 +629,33 @@ agregation
           Appliance $appliance
             |           ^
                       TV,DishWasher,...
+
+
+
+
+
+## lesson11
+# interfaces + traits
+
+
+
+
+
+(AC) Products
+    +-- name
+    +-- price
+------------------------------
+    ^
+    |
+    + ------------------+------------------+
+    |                   |                  |
+    |                   |                  |
+    (C) TV              |                  |   
+         + diagonal     |                  (C) Orange
+         ^              |                        + weight
+         |              |                        + period
+         |              |
+         + SwitchingTrait  
+                  +---- (C) WashingMachine
+                            + volume
+                         
