@@ -1,16 +1,33 @@
 <?
 require_once './src/Product.php';
-require_once './src/SwitchingTrait.php';
+require_once './src/SwitchableInterface.php';
 
 
-class TV extends Product{
+
+class TV extends Product implements SwitchableInterface{ 
     public int $diagonal;
-    use SwitchingTrait;
+    private string $status;
+  
 
     public function __construct(string $name, int $price, int $diagonal){
         parent::__construct($name, $price);
         $this->diagonal = $diagonal;
-        $this->isOn = false;
+        $this->status = "off";
+        
+    }
+
+    public function turnOn(): void {
+        $this->status = "on";
+    }
+    public function turnOff(): void {
+        $this->status = "off";
+    }
+    public function standBy(): void {
+        $this->status = "stabBy";
+
+    }
+    public function isOn(): bool {
+        return $this->status == "on";
     }
 
     //needs validation 

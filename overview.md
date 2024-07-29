@@ -659,3 +659,27 @@ agregation
                   +---- (C) WashingMachine
                             + volume
                          
+
+
+
+
+
+
+
+
+
+
+## lesson12
+
+Trait ------>  Fragment of concrete logic ------> Class
+Interface ---> Template / Contract of required logic ---> Class
+
+
+
+
+
+
+TV ------------ SwitchableInterface ---------------> Washing MAchine
+  - off                             - off
+  - stanfby                         - on
+  - on

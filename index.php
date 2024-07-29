@@ -3,32 +3,28 @@ declare(strict_types=1);
 
 
 require_once './src/TV.php';
-require_once './src/Orange.php';
 require_once './src/WashingMachine.php';
-
-require_once './src/Client.php';
+require_once './src/Orange.php';
 
 
 
 
 $tv = new TV('Lg Extreme 55"', 1000, 55);
-
-$orange = new Orange('Oranges from Ecuador', 10, 1000);
-
 $wm = new WashingMachine('Samsung Purify', 2000, 10);
-$client = new Client();
-$client->switchOn();
+// $orange = new Orange("Orange", 100,1000);
 
-// $tv->switchOn();
-// $wm->switchOn();
+function turnonDevice(SwitchableInterface $device) {
+    $device->turnOn();
+}
+
+turnonDevice($tv);
+turnonDevice($wm);
+
+// $tv->turnOn();
+$wm->turnOn();
 
 var_dump($tv);
-var_dump($orange);
 var_dump($wm);
-
-var_dump($client);
-
-
 
 
 ///////////////////////////////////////
